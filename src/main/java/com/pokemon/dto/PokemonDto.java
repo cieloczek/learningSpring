@@ -14,6 +14,11 @@ public class PokemonDto {
     private String speciesUrl;
     private String speciesName;
 
+    @JsonProperty("abilities")
+    private AbilitiesDto[] abilities;
+    @JsonProperty("stats")
+    private StatsDto[] statsDtos;
+
     @Override
     public String toString() {
         return "PokemonDto{" +
@@ -26,11 +31,6 @@ public class PokemonDto {
                 ", abilities=" + Arrays.toString(abilities) +
                 '}';
     }
-
-    @JsonProperty("abilities")
-    private AbilitiesDto[] abilities;
-    @JsonProperty("stats")
-    private StatsDto[] statsDtos;
     public String getName() {
         return name;
     }
