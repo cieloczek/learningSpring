@@ -8,25 +8,29 @@ import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PokemonDto {
+    private int id;
     private String name;
     private String weight;
     private String speciesUrl;
     private String speciesName;
 
+    @JsonProperty("abilities")
+    private AbilitiesDto[] abilities;
+    @JsonProperty("stats")
+    private StatsDto[] statsDtos;
+
     @Override
     public String toString() {
         return "PokemonDto{" +
+                "id= "+id+'\''+
                 "name='" + name + '\'' +
                 ", weight='" + weight + '\'' +
                 ", speciesUrl='" + speciesUrl + '\'' +
                 ", speciesName='" + speciesName + '\'' +
+                ", stats= " +Arrays.toString(statsDtos) + "\'"+
                 ", abilities=" + Arrays.toString(abilities) +
                 '}';
     }
-
-    @JsonProperty("abilities")
-    private AbilitiesDto[] abilities;
-
     public String getName() {
         return name;
     }
@@ -41,6 +45,14 @@ public class PokemonDto {
 
     public void setWeight(String weight) {
         this.weight = weight;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public PokemonDto(String name, String weight) {
@@ -75,4 +87,5 @@ public class PokemonDto {
     public void setSpeciesUrl(String speciesUrl) {
         this.speciesUrl = speciesUrl;
     }
+
 }

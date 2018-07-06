@@ -35,4 +35,7 @@ public class PokemonServiceImpl implements PokemonService {
 
         return parseService.returnParsedPokemon(response.getBody());
     }
+
+
+
 }
